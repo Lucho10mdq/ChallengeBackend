@@ -1,7 +1,7 @@
 # ChallengeBackend
 
 
-Este proyecto contiene la API para la resolución del challenge planteado por MELI.
+Este proyecto contiene la API para la resolución del challenge planteado por MELI. Para la solucion se utilizo NET CORE
 
 Arquitectura del proyecto se utilizo :
 
@@ -36,3 +36,6 @@ Cuando se ejecuta el endpoint STATS, el devolvera las estatidisticas, la cual es
 * [Geolocalización de IPs](http://api.ipapi.com/)
 * [Información de paises](http://api.countrylayer.com/)
 * [Información de monedas](https://restcountries.com/)
+
+### Recursos externos
+El proyecto puede ser ejecutado con IIS o con Docker
