@@ -13,11 +13,11 @@ namespace Challenge.MELI.Domain
         public string City { set; get; }
         public string IsoCode { set; get; }
         public LocationDto Location { set; get; }
-        public IList<CurrencyDto> Currencies { set; get; }
-        public DateTime Hours { set; get; }
+        public CurrencyDto Currencies { get; set; }
+        public List<string> Timezones { set; get; }
         public double Distance { set; get; }
 
-        public void BuildInformationFraudDto(IpResponse  ipCountryResponse, CountryResponse countryReponse) 
+        public void BuildInformationFraudDto(IpResponse  ipCountryResponse, CountryResponse countryReponse,CurrencyResponse currencyResponse) 
         {
             Ip = ipCountryResponse.Ip;
             Country = ipCountryResponse.Country_Name;
@@ -35,7 +35,8 @@ namespace Challenge.MELI.Domain
                     Native = x.Native
                 }).ToList()
             };
-
+            Timezones = currencyResponse.Timezones;
+            Currencies = new CurrencyDto() { Name = currencyResponse.Currencies.ARS.Name, Symbol = currencyResponse.Currencies.ARS.Symbol };
             Distance = CalculateDistance(ipCountryResponse.Latitude, ipCountryResponse.Longitude);
         }
 

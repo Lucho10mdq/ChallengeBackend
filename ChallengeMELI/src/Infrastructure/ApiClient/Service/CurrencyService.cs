@@ -7,20 +7,20 @@ using System.Threading.Tasks;
 
 namespace Challenge.MELI.ApiClient.Service
 {
-    public class CountryService : ICountryService
+    public class CurrencyService : ICurrencyService
     {
-        private readonly ICountryServiceCliente _CountryServiceClient;
+        private readonly ICurrencyServiceClient _currencyServiceClient;
 
-        private readonly string API_KEY = "da0d991f10665cf1fca4665d07b5f3c1";
-        public CountryService(ICountryServiceCliente countryServiceClient)
+        public CurrencyService(ICurrencyServiceClient currencyServiceClient)
         {
-            _CountryServiceClient = countryServiceClient;
+            _currencyServiceClient = currencyServiceClient;
         }
-        public async Task<CountryResponse> GetCountryByNameAsync(string name)
+
+        public async Task<CurrencyResponse> GetCurrencyByCodeAsync(string code)
         {
             try
             {
-                var response = await _CountryServiceClient.GetCountryByNameAsync(name, API_KEY, true);
+                var response = await _currencyServiceClient.GetCurrencyByCodeAsync(code);
 
                 if (response.IsSuccessStatusCode)
                 {

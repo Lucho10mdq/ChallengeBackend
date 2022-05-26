@@ -12,10 +12,12 @@ namespace Challenge.MELI.Application.UseCase.Fraude.Get
         public string Country { set; get; }
         public string IsoCode { set; get; }
         public LocationDto Location { set; get; }
-        public IList<CurrencyDto> Currencies { set; get; }
+        public CurrencyDto Currencies { get; set; }
         public DateTime Hours { set; get; }
         public double Distance { set; get; }
         public string City { set; get; }
+
+        public List<string> Timezones { set; get; }
         public GetFraudResponse(InformationFraudDto informationFraudeDto) 
         {
             Ip = informationFraudeDto.Ip;
@@ -26,7 +28,8 @@ namespace Challenge.MELI.Application.UseCase.Fraude.Get
             IsoCode = informationFraudeDto.IsoCode;
             Location = informationFraudeDto.Location;
             Currencies = informationFraudeDto.Currencies;
-            Hours = informationFraudeDto.Hours;
+            
+            Timezones = informationFraudeDto.Timezones;
     }
     }
 }

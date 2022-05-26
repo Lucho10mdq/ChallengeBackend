@@ -11,9 +11,12 @@ namespace Challenge.MELI.Configuration.Providers
         public static IServiceCollection AddServiceConfiguration(this IServiceCollection services)
         {
            
-            services.AddScoped<IFraudeService, FraudeService>();
+            services.AddScoped<IFraudService, FraudService>();
             services.AddScoped<IIPService, IPService>();
             services.AddScoped<ICountryService, CountryService>();
+            services.AddScoped<ICurrencyService, CurrencyService>();
+            services.AddScoped<IStatsService, StatsService>();
+
             return services;
         }
     }

@@ -8,9 +8,9 @@ namespace Challenge.MELI.Application.UseCase.Fraude.Get
 {
     public class GetFraudHandler : IRequestHandler<GetIPQuery, Response<GetFraudResponse>>
     {
-        private readonly IFraudeService _fraudeService;
+        private readonly IFraudService _fraudeService;
 
-        public GetFraudHandler(IFraudeService fraudeService) 
+        public GetFraudHandler(IFraudService fraudeService) 
         {
             _fraudeService = fraudeService;
         }

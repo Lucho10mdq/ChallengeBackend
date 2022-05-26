@@ -8,7 +8,7 @@ namespace Challenge.MELI.Configuration.Providers
         public static IServiceCollection ConfigurePersistenceServices(this IServiceCollection services, IConfiguration configuration, bool addHealthCheck = true)
         {
 
-            services.AddStackExchangeRedisCache(options =>
+            services.AddDistributedRedisCache(options =>
             {
                 options.Configuration = configuration.GetSection("redis").Value;
             });
