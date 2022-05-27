@@ -37,5 +37,5 @@ Cuando se ejecuta el endpoint STATS, el devolvera las estatidisticas, la cual es
 * [Información de paises](http://api.countrylayer.com/)
 * [Información de monedas](https://restcountries.com/)
 
-### Recursos externos
+### Ejecucion
 El proyecto puede ser ejecutado con IIS o con Docker
