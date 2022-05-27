@@ -21,6 +21,7 @@ namespace ChallengeMELI.UseCase.Stast.V1
             {
                 throw new GenericException(MessageGeneral.NotFound, MessageGeneral.Stats);
             }
+
             return Ok(response);
         }
     }
