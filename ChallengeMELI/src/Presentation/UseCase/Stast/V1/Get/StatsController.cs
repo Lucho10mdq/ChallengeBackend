@@ -1,4 +1,6 @@
-﻿using Challenge.MELI.Domain.Dtos;
+﻿using Challenge.MELI.Application.Exceptions;
+using Challenge.MELI.Domain.Dtos;
+using Challenge.MELI.Helpers;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
@@ -15,6 +17,10 @@ namespace ChallengeMELI.UseCase.Stast.V1
         {
             var response = await _statsService.GetStatsAsync();
 
+            if(response is null) 
+            {
+                throw new GenericException(MessageGeneral.NotFound, MessageGeneral.Stats);
+            }
             return Ok(response);
         }
     }

@@ -67,7 +67,7 @@ namespace Challenge.MELI.Application.Service
             return informationFraudeDto;
         }
 
-        private static void ValidateIpResponseCallBack(ApiClient.Response.IpResponse ipCountryResponse)
+        public void ValidateIpResponseCallBack(ApiClient.Response.IpResponse ipCountryResponse)
         {
             if (string.IsNullOrEmpty(ipCountryResponse.Country_Name))
             {

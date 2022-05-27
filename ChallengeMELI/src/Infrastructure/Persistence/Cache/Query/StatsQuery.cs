@@ -23,7 +23,6 @@ namespace Challenge.MELI.Persistence.Cache.Query
             if (cache != null) 
             {
                 statsDto = Common.FromByteCache<StatsDto>(cache);
-
             }
             return statsDto;
         }

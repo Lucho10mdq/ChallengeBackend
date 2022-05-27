@@ -18,7 +18,7 @@ namespace Challenge.MELI.Persistence.Cache.Comand
 
         public async Task AddStatsAsync(StatsDto statsDto)
         {
-            DistributedCacheEntryOptions options = SetTimeCacher();
+            DistributedCacheEntryOptions options = SetTimeCache();
 
             await _distributedCache.SetAsync(KEY, Common.ToByteCache(statsDto), options);
         }
@@ -26,12 +26,12 @@ namespace Challenge.MELI.Persistence.Cache.Comand
        
         public async Task UpdateStatsAsync(StatsDto statsDto)
         {
-            DistributedCacheEntryOptions options = SetTimeCacher();
+            DistributedCacheEntryOptions options = SetTimeCache();
 
             await _distributedCache.SetAsync(KEY, Common.ToByteCache(statsDto), options);
         }
 
-        private static DistributedCacheEntryOptions SetTimeCacher()
+        private static DistributedCacheEntryOptions SetTimeCache()
         {
             return new DistributedCacheEntryOptions()
                                            .SetSlidingExpiration(TimeSpan.FromSeconds(86400000));

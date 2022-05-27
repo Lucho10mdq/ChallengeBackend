@@ -28,7 +28,7 @@ namespace Challenge.MELI.ApiClient.Service
                 }
                 else
                 {
-                    throw new GenericException(response.Error.ToString(), response.StatusCode);
+                    throw new GenericExceptionClient(response.Error.ToString(),"", response.StatusCode);
                 }
             }
             catch (Exception ex)

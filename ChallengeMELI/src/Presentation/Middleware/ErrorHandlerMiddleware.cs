@@ -1,4 +1,5 @@
-﻿using Challenge.MELI.Application.Exceptions;
+﻿using Challenge.MELI.ApiClient.Exceptions;
+using Challenge.MELI.Application.Exceptions;
 using Challenge.MELI.Helpers;
 using Microsoft.AspNetCore.Http;
 using System;
@@ -36,6 +37,11 @@ namespace ChallengeMELI.Middleware
                     case GenericException e:
                         response.StatusCode = (int)HttpStatusCode.NotFound;
                         responseModel.Status = HttpStatusCode.NotFound;
+                        responseModel.Error.Add(new ProblemDetail(e.ErrorMessage));
+                        break;
+                    case GenericExceptionClient e:
+                        response.StatusCode = (int)e.HttpStatusCode;
+                        responseModel.Status = e.HttpStatusCode;
                         responseModel.Error.Add(new ProblemDetail(e.ErrorMessage));
                         break;
                 }
